@@ -4,6 +4,24 @@
 # Log file
 *.log
 
+# thumbnails created by Windows
+Thumbs.db
+
+# files & directories created by Maven
+overlays/
+target/
+
+# files & directories created by IntelliJ
+.idea/
+*.iml
+
+# files & directories created by Eclipse
+bin/
+.settings/
+*.classpath
+*.project
+*.tern-project
+
 # BlueJ files
 *.ctxt
 
