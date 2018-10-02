@@ -26,8 +26,9 @@ O 2) El piso NO está vacío, y se cumple que la sumatoria de el número del úl
  El conserje debe buscar en su sistema el número de húesped, para registrar el incidente.
  
 ### Requerimiento 2
-#### POST
+#### POST (fecha, th) -> id_reserva, precio
 @Piano - Polimorfismo
+Reserva, tipo de habitacion, precio, fines de semana es mas caro!
 
 ### Requerimiento 3
 #### GET (piso, habitacion) -> MAX(cant 0)  
