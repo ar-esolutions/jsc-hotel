@@ -14,7 +14,7 @@ spring:
       path: /db
       settings:
         web-allow-others: true
-        trace: true
+        trace: false
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
     hibernate:
