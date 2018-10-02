@@ -7,7 +7,7 @@ PB --> Lobby/Restaurant
 
 ### Requerimiento 1
 #### GET () -> nro huesped
-Un prestigioso hotel que acaba de inaugurarse, se jacta de tener infinita capacidad para húespedes.
+EDEN es un prestigioso hotel que acaba de inaugurarse, se jacta de tener infinita capacidad para húespedes.
  El hotel tiene un número infinito de pisos, los cuales tienen un número infinito de habitaciones individuales (sólo puede haber un húesped por habitación)
  Para mantener un orden en la asignación de habitaciones, el conserje confeccionó un sistema de asignación de habitaciones. El conserje decidió que cada húesped debe alojarse en la primer habitación libre del piso más bajo que cumpla estas condiciones:
 
@@ -29,12 +29,93 @@ O 2) El piso NO está vacío, y se cumple que la sumatoria de el número del úl
 @Piano - Polimorfismo
 
 ### Requerimiento 3
-#### GET (piso, habitacion) -> MAX(cant 0)  
-@Nico - Count 0 (nro de habitacion?)
+El hotel cuenta con un excelente servicio de internet, y para evitar congestiones, cada habitación cuenta con su propia red WiFi.
+
+El técnico del hotel ha desarrollado una ingenioso sistema para definir el nombre de red de cada habitación. Para obtener el nombre correcto, a partir de la combinación de las representaciones binarias del número de piso y el numero de habitación, se debe identificar la secuencia más larga de ceros que comienza y termina con un 1.
+Así, el nombre de la red se define como **Eden-P-H-C**, dónde:
+ * P = Número de piso
+ * H = Número de habitación
+ * C = La cantidad de ceros en la secuencia más larga obtenida.
+
+Cabe aclarar que en caso de no haber ninguna secuencia del tipo, el nombre de red se compone como **Eden-P-H**
+
+> **Limitación**: Tanto para  el número de piso como de habitación, se concidera los numeros enteros sin ceros por delante (Ejemplo: Habitacion 01, piso 05 no son valores correctos)
+
+#### Ejemplo 1
+Dado el piso **216** y la habitación **5**, obtenemos la combinación binaria **11011000101**.
+Dentro de la misma, obtenemos las secuencias **_101_**, **_1001_**, **_10001_**
+Dado que la secuencia más larga cotinene 3 ceros, el nombre de red será **_Eden-216-5-3_**.
+
+#### Ejemplo 2
+Dado el piso **7** y la habitación **6**, obtenemos la combinación binaria **111110**.
+Dentro de la misma, no existen secuencias válidas, por lo que el nombre de red será **_Eden-7-6_**.
+
+Se solicita desarrollar la lógica asociada a la definición del nombre de red.
+
+##### Endpoint _GET_ /floor/{floor}/room/{room}/wifi/ssid
+````json
+{
+    "floor": 216, 
+    "room": 5, 
+    "ssid": "Eden-216-5"
+}
+````
 
 ### Requerimiento 4
-#### GET (piso, habitacion) --> Pwd habitacion
-@Nico - Alpacas
+Tal como lo hizo para el nombre de red, el conserje también definió un sistema para el armado de la contraseña.
+Partiendo de la letra **E**, la secuencia que describe la complejidad de la contraseña puede generarse aplicando N veces el siguiente conjunto de reglas en forma simultanea:
+* Reemplazar cada ocurrencia de la letra **E** por **ED**
+* Reemplazar cada ocurrencia de la letra **D** por **EN**
+* Reemplazar cada ocurrencia de la letra **N** por **ND**
+
+**N** se obtiene de la sumatoria dle numero de piso y habitación.
+
+Una vez obtenida la secuencia, la contraseña se compondrá como "Eden-P-H-C" dónde:
+* P = Número de piso
+* H = Número de habitación
+* C = La cantidad de veces que la palabra "EDEN" aparece sobre la secuencia.
+ 
+> **Limitación**: Tanto para  el número de piso como de habitación, se concidera los numeros enteros sin ceros por delante (Ejemplo: Habitacion 01, piso 05 no son valores correctos)
+ 
+#### Ejemplo 1
+Dado el piso **1** y la habitación **2**, obtenemos **N=3**.
+La secuencia entonces será:
+
+| Iteración | Salida |
+| :---: | :---------: |
+| 0 | E |
+| 1 | ED |
+| 2 | EDEN |
+| 3 | EDENEDND |
+
+Dada una sola ocurrencia de la palabra EDEN, la contraseña de red será **_Eden-1-2-1_**.
+ 
+ #### Ejemplo 2
+Dado el piso **4** y la habitación **2**, obtenemos **N=6**.
+ La secuencia entonces será:
+    
+| Iteración | Salida |
+| :---: | :---------: |
+| 0 | E |
+| 1 | ED |
+| 2 | EDEN |
+| 3 | EDENEDND |
+| 4 | EDENEDNDEDENNDED|
+| 5 | EDENEDNDEDENNDENEDENEDNDNDENEDEN|
+| 6 | EDENEDNDEDENNDENEDENEDNDNDENEDNDEDENEDNDEDENNDENNDENEDNDEDENEDND|
+
+Dadas 5 ocurrencias de la palabra EDEN, la contraseña de red será **_Eden-4-2-5_**.
+  
+ Se solicita desarrollar la lógica asociada a la definición de la contraseña de red.
+ 
+ ##### Endpoint _GET_ /floor/{floor}/room/{room}/wifi/password
+ ````json
+ {
+     "floor": 4, 
+     "room": 2, 
+     "password": "Eden-4-2-6"
+ }
+ ````
 
 ### Requerimiento 5
 #### GET () -> Top 10
