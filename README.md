@@ -58,14 +58,18 @@ Como parte de una estrategia publicitaria, el hotel planea sacar una promoción 
 Dado el siguiente listado de huéspedes:
 
 **Alvarez**, Joseph
-**Paredes**,Jorge
-Romario,Luis
-**Alvarez** ,Marcos
-Michellin,Agustin
-**Alvarez**, Nicolas
-**Paredes**, Nicolas
-Salida: ["Alvarez", "Paredes"]
 
+**Paredes**,Jorge
+
+Romario,Luis
+
+**Alvarez** ,Marcos
+
+Michellin,Agustin
+
+**Alvarez**, Nicolas
+
+**Paredes**, Nicolas
 
 **Salida:**
 
