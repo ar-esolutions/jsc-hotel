@@ -49,41 +49,29 @@ Reserva, tipo de habitacion, precio, fines de semana es mas caro!
 
 ### Requerimiento 5
 
-Como parte de una estrategia publicitaria, el hotel planea sacar una promoción en la cual bonifique durante un año, el 50% de su tarifa a los 5 húespedes que más veces se hayan alojado en el 2018, 
-en sus habitaciones de tipo `ESTANDAR` y `VIP`. En caso de encontrar más de un huésped con la misma cantidad de visitas al hotel, deberán ordenarse alfabéticamente.
+Como parte de una estrategia publicitaria, el hotel planea sacar una promoción en la cual bonifique durante un año, el 50% de su tarifa a los huespedes cuyo apellido se encuentre repetido en la lista de huéspedes del hotel.
 
-**Endpoint GET /years/{year}/guests/ranking**
+**Endpoint GET /guests/last-name/repeated**
 
 **Ejemplo:**
-Dado el siguiente input
 
-|Habitacion| Guest | Año |
-|:---:| :---: | :-----: |
-|vip| Alvarez, Jose | 2017 |
-|estandar| Giovannini, Patricia | 2018 |
-|vip| Alvarez, Jose | 2018 |
-|estandar| Giovannini, Patricia | 2017 |
-|vip| Rios, Gaston | 2018 |
-|vip| Rios, Gaston | 2018 |
-|vip| Alvarez, Jose | 2017 |
-|estandar| Alvarez, Jose| 2018 |
-|...| ... | ... |
+Dado el siguiente listado de huéspedes:
+
+**Alvarez**, Joseph
+**Paredes**,Jorge
+Romario,Luis
+**Alvarez** ,Marcos
+Michellin,Agustin
+**Alvarez**, Nicolas
+**Paredes**, Nicolas
+Salida: ["Alvarez", "Paredes"]
+
 
 **Salida:**
 
 ````json
-{
-    "estandar": {
-        "guests": [
-            {"name": "Alvarez, Jose", "hosted": 1},
-            {"name": "Giovannini, Patricia", "hosted": 1}
-        ]
-    },
-    "vip": {
-      "guests": [
-          {"name": "Rios, Gaston", "hosted": 2},
-          {"name": "Alvarez, Jose", "hosted": 1}
-      ]
+    {
+        "last-names": ["Alvarez", "Paredes"]
     }
-}
+
 ````
