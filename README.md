@@ -21,8 +21,8 @@ Un prestigioso hotel que acaba de inaugurarse, se jacta de tener infinita capaci
    - El húesped número 3, consigue la habitación  2 en el piso 1 ya que 1 + 3 = 4 , y es un cuadrado perfecto.
    - El huésped número 4, no puede ir al piso 1, ya que 3+4=7 no es un cuadrado perfecto. El huésped 4 tampoco puede ir al piso 2, ya que 2+4=6 y no es un cuadrado perfecto. En consecuencia, el huésped 4 va a la habitación 1 del piso 3 porque esté vacío. 
 
- La apertura del hotel fue un éxito, y en su día de apertura, el hotel recibió a 5000 húespedes.
- Desafortunadamente, el conserje recibe una llamada de la habitación 11 del piso 60, de un húesped quejándose de que en su habitación el aire acondicionado no funciona.
+ La apertura del hotel fue un éxito, y en su día de apertura, el hotel recibió a 50.000 húespedes.
+ Desafortunadamente, el conserje recibe una llamada de la habitación 24 del piso 259, de un húesped quejándose de que en su habitación el aire acondicionado no funciona.
  El conserje debe buscar en su sistema el número de húesped, para registrar el incidente.
  
  **Endpoint GET /floors/{floor}/rooms/{room}** 

@@ -26,7 +26,7 @@ public class Jsc2App {
 	public Docket api() {
 		final ApiInfo apiInfo = new ApiInfoBuilder()
 				.title("ESolutions  Java Starters Challenge v2")
-				.description("Desafío de programación Java basado en dominio de \"Partido de las estrellas\"")
+				.description("Desafío de programación Java basado en dominio de \"Have a nice day Hotel\"")
 				.version("2.0")
 				.contact(new Contact("ESolutions", "http://www.esolutions.com.ar", "rrhh@esolutions.com.ar"))
 				.build();
