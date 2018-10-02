@@ -63,7 +63,7 @@ Dentro de la misma, no existen secuencias válidas, por lo que el nombre de red 
 
 Se solicita desarrollar la lógica asociada a la definición del nombre de red.
 
-##### Endpoint _GET_ /floor/{floor}/room/{room}/wifi/ssid
+##### Endpoint _GET_ /floors/{floor}/rooms/{room}/wifi/ssid
 ````json
 {
     "floor": 216, 
@@ -119,7 +119,7 @@ Dadas 5 ocurrencias de la palabra EDEN, la contraseña de red será **_Eden-4-2-
   
  Se solicita desarrollar la lógica asociada a la definición de la contraseña de red.
  
- ##### Endpoint _GET_ /floor/{floor}/room/{room}/wifi/password
+ ##### Endpoint _GET_ /floors/{floor}/rooms/{room}/wifi/password
  ````json
  {
      "floor": 4, 
