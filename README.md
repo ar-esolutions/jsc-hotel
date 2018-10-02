@@ -9,8 +9,7 @@ PB --> Lobby/Restaurant
 #### GET () -> nro huesped
 Un prestigioso hotel que acaba de inaugurarse, se jacta de tener infinita capacidad para húespedes.
  El hotel tiene un número infinito de pisos, los cuales tienen un número infinito de habitaciones individuales (sólo puede haber un húesped por habitación)
- Para mantener un orden en la asignación de habitaciones, el conserje confeccionó un sistema de asignación de habitaciones para mantenerlo "organizado"
- El conserje decidió que cada húesped debe alojarse en la primer habitación libre del piso más bajo que cumpla estas condiciones:
+ Para mantener un orden en la asignación de habitaciones, el conserje confeccionó un sistema de asignación de habitaciones. El conserje decidió que cada húesped debe alojarse en la primer habitación libre del piso más bajo que cumpla estas condiciones:
 
  1) El piso está vacío
 O 2) El piso NO está vacío, y se cumple que la sumatoria de el número del último húesped alojado, más el número del nuevo húesped es un cuadrado perfecto, es decir, su raíz cuadrada da como resultado un número entero. (si el nuevo húesped es el número m, y el alojado en la última habitación de ese piso, es n, entonces n+m es un cuadrado perfecto)
