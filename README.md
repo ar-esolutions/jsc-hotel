@@ -9,10 +9,11 @@ PB --> Lobby/Restaurant
 #### GET () -> nro huesped
 EDEN es un prestigioso hotel que acaba de inaugurarse, se jacta de tener infinita capacidad para húespedes.
  El hotel tiene un número infinito de pisos, los cuales tienen un número infinito de habitaciones individuales (sólo puede haber un húesped por habitación)
- Para mantener un orden en la asignación de habitaciones, el conserje confeccionó un sistema de asignación de habitaciones. El conserje decidió que cada húesped debe alojarse en la primer habitación libre del piso más bajo que cumpla estas condiciones:
+ Para mantener un orden en la asignación de habitaciones, el conserje confeccionó un sistema de asignación de habitaciones . El conserje decidió que cada húesped debe alojarse en la primer habitación libre del piso más bajo que cumpla alguno de estos enunciados:
 
  1) El piso está vacío
-O 2) El piso NO está vacío, y se cumple que la sumatoria de el número del último húesped alojado, más el número del nuevo húesped es un cuadrado perfecto, es decir, su raíz cuadrada da como resultado un número entero. (si el nuevo húesped es el número m, y el alojado en la última habitación de ese piso, es n, entonces n+m es un cuadrado perfecto)
+ 
+ 2) El piso NO está vacío, y se cumple que la sumatoria del número del último húesped alojado, más el número del nuevo húesped es un cuadrado perfecto, es decir, su raíz cuadrada da como resultado un número entero. (si el nuevo húesped es el número m, y el alojado en la última habitación de ese piso, es n, entonces n+m es un cuadrado perfecto)
 
  Ejemplo :
    - El primer húesped en alojarse consigue la habitación 1 en el 1er piso, ya que el piso 1 está vacío.
@@ -20,13 +21,23 @@ O 2) El piso NO está vacío, y se cumple que la sumatoria de el número del úl
    - El húesped número 3, consigue la habitación  2 en el piso 1 ya que 1 + 3 = 4 , y es un cuadrado perfecto.
    - El huésped número 4, no puede ir al piso 1, ya que 3+4=7 no es un cuadrado perfecto. El huésped 4 tampoco puede ir al piso 2, ya que 2+4=6 y no es un cuadrado perfecto. En consecuencia, el huésped 4 va a la habitación 1 del piso 3 porque esté vacío. 
 
- La apertura del hotel fue un éxito, y en su día de apertura, el hotel recibió a 5000 húespedes.
- Desafortunadamente, el conserje recibe una llamada de la habitación 11 del piso 60, de un húesped quejándose de que en su habitación el aire acondicionado no funciona.
+ La apertura del hotel fue un éxito, y en su día de apertura, el hotel recibió a 50.000 húespedes.
+ Desafortunadamente, el conserje recibe una llamada de la habitación 24 del piso 259, de un húesped quejándose de que en su habitación el aire acondicionado no funciona.
  El conserje debe buscar en su sistema el número de húesped, para registrar el incidente.
  
+ **Endpoint GET /floors/{floor}/rooms/{room}** 
+ 
+ ````json
+ {
+     "guest":423
+ }
+ ````
+ 
+ 
 ### Requerimiento 2
-#### POST
+#### POST (fecha, th) -> id_reserva, precio
 @Piano - Polimorfismo
+Reserva, tipo de habitacion, precio, fines de semana es mas caro!
 
 ### Requerimiento 3
 El hotel cuenta con un excelente servicio de internet, y para evitar congestiones, cada habitación cuenta con su propia red WiFi.
@@ -118,5 +129,34 @@ Dadas 5 ocurrencias de la palabra EDEN, la contraseña de red será **_Eden-4-2-
  ````
 
 ### Requerimiento 5
-#### GET () -> Top 10
-Top 10 repetidos
+
+Como parte de una estrategia publicitaria, el hotel planea sacar una promoción en la cual bonifique durante un año, el 50% de su tarifa a los huespedes cuyo apellido se encuentre repetido en la lista de huéspedes del hotel.
+
+**Endpoint GET /guests/last-name/repeated**
+
+**Ejemplo:**
+
+Dado el siguiente listado de huéspedes:
+
+**Alvarez**, Joseph
+
+**Paredes**,Jorge
+
+Romario,Luis
+
+**Alvarez** ,Marcos
+
+Michellin,Agustin
+
+**Alvarez**, Nicolas
+
+**Paredes**, Nicolas
+
+**Salida:**
+
+````json
+    {
+        "last-names": ["Alvarez", "Paredes"]
+    }
+
+````
