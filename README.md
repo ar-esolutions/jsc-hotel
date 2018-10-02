@@ -1,7 +1,12 @@
 # Esolutions
 ## Java Starters Challenge - "_Have a_ nice day Hotel"
 
+PB --> Lobby/Restaurant
+1-n habitaciones
+
+
 ### Requerimiento 1
+#### GET () -> nro huesped
 Un prestigioso hotel que acaba de inaugurarse, se jacta de tener infinita capacidad para húespedes.
  El hotel tiene un número infinito de pisos, los cuales tienen un número infinito de habitaciones individuales (sólo puede haber un húesped por habitación)
  Para mantener un orden en la asignación de habitaciones, el conserje confeccionó un sistema de asignación de habitaciones para mantenerlo "organizado"
@@ -21,11 +26,17 @@ O 2) El piso NO está vacío, y se cumple que la sumatoria de el número del úl
  El conserje debe buscar en su sistema el número de húesped, para registrar el incidente.
  
 ### Requerimiento 2
-@Piano - Arbol?
+#### POST
+@Piano - Polimorfismo
+
 ### Requerimiento 3
-@Isaac - Count 0 (nro de habitacion?)
+#### GET (piso, habitacion) -> MAX(cant 0)  
+@Nico - Count 0 (nro de habitacion?)
+
 ### Requerimiento 4
-@Nico?? - Alpacas
+#### GET (piso, habitacion) --> Pwd habitacion
+@Nico - Alpacas
+
 ### Requerimiento 5
+#### GET () -> Top 10
 Top 10 repetidos
-### Requerimiento 6
