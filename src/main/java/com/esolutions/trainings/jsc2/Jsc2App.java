@@ -1,7 +1,5 @@
 package com.esolutions.trainings.jsc2;
 
-import org.h2.tools.Server;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.liquibase.LiquibaseProperties;
@@ -16,8 +14,6 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
-import java.sql.SQLException;
-
 @SpringBootApplication
 @EnableConfigurationProperties(LiquibaseProperties.class)
 @EnableSwagger2
@@ -25,13 +21,6 @@ public class Jsc2App {
 	public static void main(String[] args) {
 		SpringApplication.run(Jsc2App.class, args);
 	}
-
-	/*@Bean(initMethod = "start", destroyMethod = "stop")
-	public Server h2Server(@Value("${h2.port}") String port) throws SQLException {
-		return Server.createTcpServer("-tcp", "-tcpAllowOthers", "-tcpPort", port);
-	}*/
-
-	//WebSecurityConfigurer
 
 	@Bean
 	public Docket api() {
