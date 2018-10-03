@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class RoomMapperController {
 
     @GetMapping(value = "/floors/{floor}/rooms/{room}")
-    public GuestResponse getGuestNumber(@PathVariable int floor, @PathVariable int room ){
+    public GuestResponse getGuestNumber(@PathVariable int floor, @PathVariable int room){
         return new GuestResponse(null);
     }
 }

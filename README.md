@@ -56,10 +56,13 @@ Según las fechas de entrada y salida y tipo de habitación (_Estandar_ o _Suite
 #### Ejemplo
 _Entrada_: 03/10/2018  
 _Salida_: 19/10/2018  
-_Tipo habitación_: Estandar
+_Número de piso_: 1  
+_Número de habitación_: 5
 
-Lun-Jue: 03/10, 04/10, 08/10, 09/10, 10/10, 11/10, 15/10, 16/10, 17/10, 18/10  
-Vie-Dom: 05/10, 06/10, 07/10, 12/10, 13/10, 14/10  
+Como todavía no hay ninguna reserva, sabemos que la habitación 5 del piso 1 esta libre.
+
+Días Lun-Jue: 03/10, 04/10, 08/10, 09/10, 10/10, 11/10, 15/10, 16/10, 17/10, 18/10  
+Días Vie-Dom: 05/10, 06/10, 07/10, 12/10, 13/10, 14/10  
 
 ```
 Lun-Jue: 10d * $150,99 = $1.509,90
@@ -67,13 +70,12 @@ Vie-Dom: 6d * $191,99 = $1.151,94
 Total: $2661,84
 ```
 
-#### Endpoint POST /book
+#### Endpoint POST /floors/{floor}/rooms/{room}/book
 ##### Request
 ````json
 {
   "check-in": "2018-10-03",
-  "check-out": "2018-10-19",
-  "kind": "ESTANDAR"
+  "check-out": "2018-10-19"
 }
 ````
 ##### Response
@@ -87,7 +89,8 @@ Total: $2661,84
 ### Requerimiento 3
 El hotel cuenta con un excelente servicio de internet, y para evitar congestiones, cada habitación cuenta con su propia red WiFi.
 
-El técnico del hotel ha desarrollado una ingenioso sistema para definir el nombre de red de cada habitación. Para obtener el nombre correcto, a partir de la combinación de las representaciones binarias del número de piso y el numero de habitación, se debe identificar la secuencia más larga de ceros que comienza y termina con un 1.
+El técnico del hotel ha desarrollado un ingenioso sistema para definir el nombre de red de cada habitación. Para obtener el nombre correcto, 
+a partir de la **concatenación** de las representaciones binarias del número de piso y el numero de habitación, se debe identificar la secuencia más larga de ceros que comienza y termina con un 1.
 Así, el nombre de la red se define como **HAND-P-H-C**, dónde:
  * P = Número de piso
  * H = Número de habitación
@@ -98,12 +101,12 @@ Así, el nombre de la red se define como **HAND-P-H-C**, dónde:
 > Tanto para  el número de piso como el de habitación, se consideran los numeros enteros sin ceros por delante (Ejemplo: Habitacion 01, piso 05 no son valores correctos)
 
 #### Ejemplo 1
-Dado el piso **216** y la habitación **5**, obtenemos la combinación binaria **11011000101**.
-Dentro de la misma, obtenemos las secuencias **_101_**, **_1001_**, **_10001_**
+Dado el piso **216** y la habitación **5**, obtenemos la combinación binaria **11011000** para el piso y **1001** para la habitación. Luego de concatenar obtenemos **110110001001**.  
+Dentro de esta cadena, obtenemos las secuencias **_101_**, **_10001_**, **_1001_**.  
 Dado que la secuencia más larga continene 3 ceros, el nombre de red será **_HAND-216-5-3_**.
 
 #### Ejemplo 2
-Dado el piso **7** y la habitación **6**, obtenemos la combinación binaria **111110**.
+Dado el piso **7** y la habitación **6**, obtenemos la combinación binaria **111** para el piso y **110** para la habitación. Luego de concatenar obtenemos **111110**.  
 Dentro de la misma, no existen secuencias válidas, por lo que el nombre de red será **_HAND-7-6_**.
 
 Se solicita desarrollar la lógica asociada a la definición del nombre de red.
@@ -112,14 +115,12 @@ Se solicita desarrollar la lógica asociada a la definición del nombre de red.
 ##### Response
 ````json
 {
-  "floor": 216, 
-  "room": 5, 
   "ssid": "HAND-216-5"
 }
 ````
 
 ### Requerimiento 4
-Tal como lo hizo para el nombre de red, el conserje también definió un sistema para el armado de la contraseña.
+Tal como lo hizo para el nombre de red, el técnico también definió un sistema para el armado de la contraseña.
 Partiendo de la letra **J**, la secuencia que describe la complejidad de la contraseña puede generarse aplicando N veces el siguiente conjunto de reglas en forma simultanea:
 * Reemplazar cada ocurrencia de la letra **J** por **JA**
 * Reemplazar cada ocurrencia de la letra **A** por **VA**
@@ -147,7 +148,7 @@ La secuencia entonces será:
 | 2 | JAVA |
 | 3 | **JAVA**VJJA |
 
-Dada una sola ocurrencia de la palabra JAVA, la contraseña de red será **_PASS-1-2-1_**.
+Dado que hay una sola ocurrencia de la palabra JAVA, la contraseña de red será **_PASS-1-2-1_**.
  
  #### Ejemplo 2
 Dado el piso **4** y la habitación **2**, obtenemos **N=6**.
@@ -163,13 +164,11 @@ Dado el piso **4** y la habitación **2**, obtenemos **N=6**.
 | 5 | JAVAVJVAVJJAJAVAVJJAJAVAJAVAVJVA |
 | 6 | **JAVA**VJVAVJJAVJVAVJJA**JAVA****JAVA**VJVAVJJA**JAVA****JAVA**VJVA**JAVA**VJVAVJJAVJJA |
 
-Dadas 6 ocurrencias de la palabra JAVA, la contraseña de red será **_PASS-4-2-6_**.
+Dado que existen 6 ocurrencias de la palabra JAVA, la contraseña de red será **_PASS-4-2-6_**.
   
 ##### Endpoint _GET_ /floors/{floor}/rooms/{room}/wifi/password
  ````json
 {
-  "floor": 4, 
-  "room": 2, 
   "password": "PASS-4-2-6"
 }
  ````
