@@ -36,9 +36,9 @@ El conserje debe buscar en su sistema el número de húesped, para registrar el 
 ### Requerimiento 2
 Con el objetivo de aumentar las ventas, el director del hotel, va a lanzar una nueva campaña para que los huéspedes puedan realizar una reserva mediante la página web del hotel.
 
-Para realizar la reserva, el cliente debe seleccionar _la fecha de entrada_, _la de salida_ y _la habitación_.
+Para realizar la reserva, el cliente debe seleccionar _la fecha de entrada_, _la de salida_ y _el número_ de habitación.
 
-Según las fechas de entrada y salida y tipo de habitación el director definió las siguientes reglas:
+Según las fechas de entrada y salida y tipo de habitación (_Estandar_ o _Suite_) el director definió los siguientes precios:
 
 | Tipo/Fecha    | Lun-Jue   | Vie-Dom   |
 | ---           | ---       | ---       |
@@ -141,7 +141,7 @@ La secuencia entonces será:
 | 0 | E |
 | 1 | ED |
 | 2 | EDEN |
-| 3 | EDENEDND |
+| 3 | **EDEN**EDND |
 
 Dada una sola ocurrencia de la palabra EDEN, la contraseña de red será **_Eden-1-2-1_**.
  
@@ -171,7 +171,7 @@ Dadas 6 ocurrencias de la palabra EDEN, la contraseña de red será **_Eden-4-2-
  ````
 
 ### Requerimiento 5
-Como parte de una estrategia publicitaria, el hotel planea sacar una promoción en la cual bonifique durante un año, el 50% de su tarifa a los huespedes cuyo apellido se encuentre repetido en la lista de huéspedes del hotel.
+Como parte de una estrategia publicitaria, el hotel planea sacar una promoción en la cual bonifique en la primer reserva, el 50% de su tarifa a los huespedes cuyo apellido se encuentre repetido en la lista de huéspedes del hotel.
 
 #### Ejemplo 1
 Dado el siguiente listado de huéspedes:
