@@ -2,7 +2,7 @@
 ## Java Starters Challenge - "_Have a_ nice day Hotel"
 **_Have a_ nice day Hotel** es un prestigioso hotel que acaba de inaugurarse.
 
-Lanzó una campaña publicitaria en donde se jacta de tener una capacidad _infinita_ para albergar húespedes.  
+Lanzó una campaña publicitaria en la que se jacta de tener una capacidad _infinita_ para albergar húespedes.  
 En la planta baja se encuentra el lobby del hotel, junto a un restaurante dirigido por un chef con 8 estrellas Michelin.
 
 ### Requerimiento 1
