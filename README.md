@@ -173,6 +173,8 @@ Dadas 6 ocurrencias de la palabra EDEN, la contraseña de red será **_Eden-4-2-
 ### Requerimiento 5
 Como parte de una estrategia publicitaria, el hotel planea sacar una promoción en la cual bonifique en la primer reserva, el 50% de su tarifa a los huespedes cuyo apellido se encuentre repetido en la lista de huéspedes del hotel.
 
+Se solicita identificar todos los apellidos repetidos, ordenados alfabéticamente.
+
 #### Ejemplo 1
 Dado el siguiente listado de huéspedes:
 
