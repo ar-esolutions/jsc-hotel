@@ -146,7 +146,7 @@ La secuencia entonces será:
 | 0 | J |
 | 1 | JA |
 | 2 | JAVA |
-| 3 | **JAVA**VJJA |
+| 3 | **JAVA**VJVA |
 
 Dado que hay una sola ocurrencia de la palabra JAVA, la contraseña de red será **_PASS-1-2-1_**.
  
@@ -159,17 +159,17 @@ Dado el piso **4** y la habitación **2**, obtenemos **N=6**.
 | 0 | J |
 | 1 | JA |
 | 2 | JAVA |
-| 3 | JAVAVJJA |
-| 4 | JAVAVJJAVJJAJAVA |
-| 5 | JAVAVJVAVJJAJAVAVJJAJAVAJAVAVJVA |
-| 6 | **JAVA**VJVAVJJAVJVAVJJA**JAVA****JAVA**VJVAVJJA**JAVA****JAVA**VJVA**JAVA**VJVAVJJAVJJA |
+| 3 | JAVAVJVA |
+| 4 | JAVAVJVAVJJAVJVA |
+| 5 | JAVAVJVAVJJAVJVAVJJAJAVAVJJAVJVA |
+| 6 | **JAVA**VJVAVJJAVJVAVJJA**JAVA**VJJAVJVAVJJA**JAVA****JAVA**VJVAVJJA**JAVA**VJJAVJVA |
 
-Dado que existen 6 ocurrencias de la palabra JAVA, la contraseña de red será **_PASS-4-2-6_**.
+Dado que existen 5 ocurrencias de la palabra JAVA, la contraseña de red será **_PASS-4-2-5_**.
   
 ##### Endpoint _GET_ /floors/{floor}/rooms/{room}/wifi/password
  ````json
 {
-  "password": "PASS-4-2-6"
+  "password": "PASS-4-2-5"
 }
  ````
 
