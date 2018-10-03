@@ -14,7 +14,8 @@
 	<version>2.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>java-starters-challenge</name>
+	<name>jsc2-hotel</name>
+	<description>[JSC 2] Hotel</description>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
