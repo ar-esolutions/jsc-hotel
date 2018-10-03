@@ -162,7 +162,7 @@ Dado el piso **4** y la habitación **2**, obtenemos **N=6**.
 | 3 | JAVAVJVA |
 | 4 | JAVAVJVAVJJAVJVA |
 | 5 | JAVAVJVAVJJAVJVAVJJAJAVAVJJAVJVA |
-| 6 | **JAVA**VJVAVJJAVJVAVJJA**JAVA**VJJAVJVAVJJA**JAVA****JAVA**VJVAVJJA**JAVA**VJJAVJVA |
+| 6 | **JAVA**VJVAVJJAVJVAVJJA**JAVA**VJJAVJVAVJJA**JAVAJAVA**VJVAVJJA**JAVA**VJJAVJVA |
 
 Dado que existen 5 ocurrencias de la palabra JAVA, la contraseña de red será **_PASS-4-2-5_**.
   
