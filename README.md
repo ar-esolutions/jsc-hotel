@@ -1,17 +1,15 @@
 # Esolutions
 ## Java Starters Challenge - "_Have a_ nice day Hotel"
+**_Have a_ nice day Hotel** es un prestigioso hotel que acaba de inaugurarse.
 
-PB --> Lobby/Restaurant
-1-n habitaciones
-
+Lanzó una campaña publicitaria en donde se jacta de tener una capacidad _infinita_ para albergar húespedes.  
+En la planta baja se encuentra el lobby del hotel, junto a un restaurante dirigido por un chef con 8 estrellas Michelin.
 
 ### Requerimiento 1
-**_Have a_ nice day Hotel** es un prestigioso hotel que acaba de inaugurarse. Se jacta de tener una capacidad para albergar húespedes _infinita_.  
- 
-Para mantener un orden en la asignación de habitaciones, el conserje confeccionó un complejo sistema de asignación de habitaciones. Decidió que cada húesped debe alojarse en la primer habitación libre del piso más bajo que cumpla alguno de estos enunciados:
+Para mantener un orden, el conserje confeccionó un complejo sistema de asignación de habitaciones. Decidió que cada húesped debe alojarse en la primer habitación libre del piso más bajo que cumpla alguna de estas reglas:
 
 1) El 1er huésped debe alojarse en la habitación 1 del piso 1.
-2) Se cumple que la sumatoria del número del último húesped alojado, más el número del nuevo húesped es un cuadrado perfecto, es decir, su raíz cuadrada da como resultado un número entero. (si el nuevo húesped es el número m, y el alojado en la última habitación de ese piso, es n, entonces n+m es un cuadrado perfecto).
+2) Se cumple que la sumatoria del número del último húesped alojado en el piso, más el número del nuevo húesped es un cuadrado perfecto, es decir, su raíz cuadrada da como resultado un número entero (si el nuevo húesped es el número m, y el alojado en la última habitación de ese piso, es n, entonces n+m es un cuadrado perfecto).
 3) El piso está vacío.
 
 > Sólo puede haber un huésped por habitación.
@@ -47,7 +45,9 @@ Según las fechas de entrada y salida y tipo de habitación el director definió
 | **Estandar**  | $150,99   | $191,99   |
 | **Suite**     | $187,99   | $202,99   |
 
-En caso de que la habitación esté ocupada, la reserva no se podrá realizar.
+> En caso de que la habitación esté ocupada, la reserva no se podrá realizar.
+
+> No se debe aplicar ningún redonde al resultado
 
 #### Ejemplo
 _Entrada_: 03/10/2018  
@@ -55,11 +55,13 @@ _Salida_: 19/10/2018
 _Tipo habitación_: Estandar
 
 Lun-Jue: 03/10, 04/10, 08/10, 09/10, 10/10, 11/10, 15/10, 16/10, 17/10, 18/10  
-> Lun-Jue: 10 * $150,99 = 1.509,90
+Vie-Dom: 05/10, 06/10, 07/10, 12/10, 13/10, 14/10  
 
-Vie-Dom: 05/10, 06/10, 07/10, 12/10, 13/10, 14/10    
-> Vie-Dom: 6 * $191,99 = 1.151,94  
-> Total: $2661,84
+```
+Lun-Jue: 10d * $150,99 = $1.509,90
+Vie-Dom: 6d * $191,99 = $1.151,94
+Total: $2661,84
+```
 
 #### Endpoint POST /book
 ##### Request
@@ -89,7 +91,7 @@ Así, el nombre de la red se define como **HAND-P-H-C**, dónde:
 
 > De no haber ninguna secuencia del tipo, el nombre de red se compone como **HAND-P-H**
 
-> **Limitación**: Tanto para  el número de piso como de habitación, se concidera los numeros enteros sin ceros por delante (Ejemplo: Habitacion 01, piso 05 no son valores correctos)
+> Tanto para  el número de piso como de habitación, se concidera los numeros enteros sin ceros por delante (Ejemplo: Habitacion 01, piso 05 no son valores correctos)
 
 #### Ejemplo 1
 Dado el piso **216** y la habitación **5**, obtenemos la combinación binaria **11011000101**.
@@ -126,7 +128,7 @@ Una vez obtenida la secuencia, la contraseña se compondrá como "Eden-P-H-C" d�
 * H = Número de habitación
 * C = La cantidad de veces que la palabra "EDEN" aparece sobre la secuencia.
  
-> **Limitación**: Tanto para  el número de piso como de habitación, se concidera los numeros enteros sin ceros por delante (Ejemplo: Habitacion 01, piso 05 no son valores correctos)
+> Tanto para  el número de piso como de habitación, se concidera los numeros enteros sin ceros por delante (Ejemplo: Habitacion 01, piso 05 no son valores correctos)
  
 Se solicita desarrollar la lógica asociada a la definición de la contraseña de red.
 
@@ -155,9 +157,9 @@ Dado el piso **4** y la habitación **2**, obtenemos **N=6**.
 | 3 | EDENEDND |
 | 4 | EDENEDNDEDENNDED |
 | 5 | EDENEDNDEDENNDENEDENEDNDNDENEDEN |
-| 6 | EDENEDNDEDENNDENEDENEDNDNDENEDNDEDENEDNDEDENNDENNDENEDNDEDENEDND |
+| 6 | **EDEN**EDND**EDEN**NDEN**EDEN**EDNDNDENEDND**EDEN**EDND**EDEN**NDENNDENEDND**EDEN**EDND |
 
-Dadas 5 ocurrencias de la palabra EDEN, la contraseña de red será **_Eden-4-2-5_**.
+Dadas 6 ocurrencias de la palabra EDEN, la contraseña de red será **_Eden-4-2-6_**.
   
 ##### Endpoint _GET_ /floors/{floor}/rooms/{room}/wifi/password
  ````json
