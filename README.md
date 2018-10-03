@@ -46,7 +46,7 @@ Según las fechas de entrada y salida y tipo de habitación (_Estandar_ o _Suite
 
 > En caso de que la habitación esté ocupada, la reserva no se podrá realizar.
 
-> No se debe aplicar ningún redonde al resultado
+> No se debe aplicar ningún redondeo al resultado del monto final.
 
 #### Ejemplo
 _Entrada_: 03/10/2018  
@@ -90,7 +90,7 @@ Así, el nombre de la red se define como **HAND-P-H-C**, dónde:
 
 > De no haber ninguna secuencia del tipo, el nombre de red se compone como **HAND-P-H**
 
-> Tanto para  el número de piso como de habitación, se concidera los numeros enteros sin ceros por delante (Ejemplo: Habitacion 01, piso 05 no son valores correctos)
+> Tanto para  el número de piso como el de habitación, se consideran los numeros enteros sin ceros por delante (Ejemplo: Habitacion 01, piso 05 no son valores correctos)
 
 #### Ejemplo 1
 Dado el piso **216** y la habitación **5**, obtenemos la combinación binaria **11011000101**.
