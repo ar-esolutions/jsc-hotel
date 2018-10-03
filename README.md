@@ -9,16 +9,15 @@ En la planta baja se encuentra el lobby del hotel, junto a un restaurante dirigi
 Para mantener un orden, el conserje confeccionó un complejo sistema de asignación de habitaciones. Decidió que cada húesped debe alojarse en la primer habitación libre del piso más bajo que cumpla alguna de estas reglas:
 
 1) El 1er huésped debe alojarse en la habitación 1 del piso 1.
-2) Se cumple que la sumatoria del número del último húesped alojado en el piso, más el número del nuevo húesped es un cuadrado perfecto, es decir, su raíz cuadrada da como resultado un número entero (si el nuevo húesped es el número m, y el alojado en la última habitación de ese piso, es n, entonces n+m es un cuadrado perfecto).
+2) La sumatoria del número del último húesped alojado en el piso y el número del nuevo húesped es un cuadrado perfecto, es decir, su raíz cuadrada da como resultado un número entero (si el nuevo húesped es el número 5, y el alojado en la última habitación de ese piso, es el número 4, entonces n+m(9) es un cuadrado perfecto).
 3) El piso está vacío.
 
 > Sólo puede haber un huésped por habitación.
 
-
 #### Ejemplo
 * El primer húesped se aloja en la habitación 1 del 1er piso.
-* El huésped número 2, no puede alojarse en la habitación 2 del piso 1 ya que  1 + 2 = 3 , no es un cuadrado perfecto, entonces se aloja en la habitación 1 en el piso 2, ya que éste está vacío.
-* El húesped número 3, se aloja en la habitación 2 del piso 1 ya que 1 + 3 = 4 , y es un cuadrado perfecto.
+* El huésped número 2 no puede alojarse en la habitación 2 del piso 1 ya que  1 + 2 = 3 no es un cuadrado perfecto, por lo que se le asigna la habitación 1 en el piso 2, que está vacío.
+* El húesped número 3, se aloja en la habitación 2 del piso 1 ya que 1 + 3 = 4 es un cuadrado perfecto.
 * El huésped número 4, no puede alojarse en el piso 1, ya que 3 + 4 = 7, y no es un cuadrado perfecto. Tampoco puede alojarse en el piso 2, ya que 2 + 4 = 6, no es un cuadrado perfecto. En consecuencia, el huésped 4 se aloja en la habitación 1 del piso 3 porque éste está vacío. 
 
 La apertura del hotel fue un éxito, y en un sólo día, el hotel recibió a 50.000 húespedes.
