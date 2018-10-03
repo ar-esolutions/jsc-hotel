@@ -132,7 +132,7 @@ INSERT INTO matches (year, day_of_year) VALUES (2018, 187);
 COMMIT;
 
 --changeset grios:3
-CREATE TABLE players (
+CREATE TABLE guests (
 	id   INTEGER PRIMARY KEY,
 	name VARCHAR2(100) NOT NULL UNIQUE
 );
