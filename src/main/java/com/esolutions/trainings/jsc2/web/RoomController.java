@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class RoomMapperController {
+public class RoomController {
 
     @GetMapping(value = "/floors/{floor}/rooms/{room}")
     public GuestResponse getGuestNumber(@PathVariable int floor, @PathVariable int room){
