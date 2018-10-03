@@ -96,7 +96,7 @@ Así, el nombre de la red se define como **HAND-P-H-C**, dónde:
 #### Ejemplo 1
 Dado el piso **216** y la habitación **5**, obtenemos la combinación binaria **11011000101**.
 Dentro de la misma, obtenemos las secuencias **_101_**, **_1001_**, **_10001_**
-Dado que la secuencia más larga cotinene 3 ceros, el nombre de red será **_HAND-216-5-3_**.
+Dado que la secuencia más larga continene 3 ceros, el nombre de red será **_HAND-216-5-3_**.
 
 #### Ejemplo 2
 Dado el piso **7** y la habitación **6**, obtenemos la combinación binaria **111110**.
@@ -110,23 +110,23 @@ Se solicita desarrollar la lógica asociada a la definición del nombre de red.
 {
   "floor": 216, 
   "room": 5, 
-  "ssid": "Eden-216-5"
+  "ssid": "HAND-216-5"
 }
 ````
 
 ### Requerimiento 4
 Tal como lo hizo para el nombre de red, el conserje también definió un sistema para el armado de la contraseña.
-Partiendo de la letra **E**, la secuencia que describe la complejidad de la contraseña puede generarse aplicando N veces el siguiente conjunto de reglas en forma simultanea:
-* Reemplazar cada ocurrencia de la letra **E** por **ED**
-* Reemplazar cada ocurrencia de la letra **D** por **EN**
-* Reemplazar cada ocurrencia de la letra **N** por **ND**
+Partiendo de la letra **J**, la secuencia que describe la complejidad de la contraseña puede generarse aplicando N veces el siguiente conjunto de reglas en forma simultanea:
+* Reemplazar cada ocurrencia de la letra **J** por **JA**
+* Reemplazar cada ocurrencia de la letra **A** por **VA**
+* Reemplazar cada ocurrencia de la letra **V** por **VJ**
 
-**N** se obtiene de la sumatoria dle numero de piso y habitación.
+**N** se obtiene de la sumatoria del número de piso y habitación.
 
-Una vez obtenida la secuencia, la contraseña se compondrá como "Eden-P-H-C" dónde:
+Una vez obtenida la secuencia, la contraseña se compondrá como "PASS-P-H-C" dónde:
 * P = Número de piso
 * H = Número de habitación
-* C = La cantidad de veces que la palabra "EDEN" aparece sobre la secuencia.
+* C = La cantidad de veces que la palabra "JAVA" aparece sobre la secuencia.
  
 > Tanto para  el número de piso como de habitación, se concidera los numeros enteros sin ceros por delante (Ejemplo: Habitacion 01, piso 05 no son valores correctos)
  
@@ -138,12 +138,12 @@ La secuencia entonces será:
 
 | Iteración | Salida |
 | :---: | :---------: |
-| 0 | E |
-| 1 | ED |
-| 2 | EDEN |
-| 3 | **EDEN**EDND |
+| 0 | J |
+| 1 | JA |
+| 2 | JAVA |
+| 3 | **JAVA**VJJA |
 
-Dada una sola ocurrencia de la palabra EDEN, la contraseña de red será **_Eden-1-2-1_**.
+Dada una sola ocurrencia de la palabra JAVA, la contraseña de red será **_PASS-1-2-1_**.
  
  #### Ejemplo 2
 Dado el piso **4** y la habitación **2**, obtenemos **N=6**.
@@ -151,22 +151,22 @@ Dado el piso **4** y la habitación **2**, obtenemos **N=6**.
     
 | Iteración | Salida |
 | :---: | :---------: |
-| 0 | E |
-| 1 | ED |
-| 2 | EDEN |
-| 3 | EDENEDND |
-| 4 | EDENEDNDEDENNDED |
-| 5 | EDENEDNDEDENNDENEDENEDNDNDENEDEN |
-| 6 | **EDEN**EDND**EDEN**NDEN**EDEN**EDNDNDENEDND**EDEN**EDND**EDEN**NDENNDENEDND**EDEN**EDND |
+| 0 | J |
+| 1 | JA |
+| 2 | JAVA |
+| 3 | JAVAVJJA |
+| 4 | JAVAVJJAVJJAJAVA |
+| 5 | JAVAVJVAVJJAJAVAVJJAJAVAJAVAVJVA |
+| 6 | **JAVA**VJVAVJJAVJVAVJJA**JAVA****JAVA**VJVAVJJA**JAVA****JAVA**VJVA**JAVA**VJVAVJJAVJJA |
 
-Dadas 6 ocurrencias de la palabra EDEN, la contraseña de red será **_Eden-4-2-6_**.
+Dadas 6 ocurrencias de la palabra JAVA, la contraseña de red será **_PASS-4-2-6_**.
   
 ##### Endpoint _GET_ /floors/{floor}/rooms/{room}/wifi/password
  ````json
 {
   "floor": 4, 
   "room": 2, 
-  "password": "Eden-4-2-6"
+  "password": "PASS-4-2-6"
 }
  ````
 
