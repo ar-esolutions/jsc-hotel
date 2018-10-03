@@ -25,9 +25,47 @@ O 2) El piso NO está vacío, y se cumple que la sumatoria de el número del úl
  El conserje debe buscar en su sistema el número de húesped, para registrar el incidente.
  
 ### Requerimiento 2
-#### POST (fecha, th) -> id_reserva, precio
-@Piano - Polimorfismo
-Reserva, tipo de habitacion, precio, fines de semana es mas caro!
+Con el objetivo de aumentar las ventas, el director del hotel, va a lanzar una nueva campaña para que los huéspedes puedan realizar una reserva mediante la página web del hotel.
+
+Para realizar la reserva, el cliente debe seleccionar _la fecha de entrada_, _la de salida_ y _la habitación_.
+
+Según las fechas de entrada y salida y tipo de habitación el director definió las siguientes reglas:
+
+| Tipo/Fecha    | Lun-Jue   | Vie-Dom   |
+| ---           | ---       | ---       |
+| **Estandar**  | $150,99   | $191,99   |
+| **Suite**     | $187,99   | $202,99   |
+
+En caso de que la habitación esté ocupada, la reserva no se podrá realizar.
+
+#### Ejemplo
+_Entrada_: 03/10/2018  
+_Salida_: 19/10/2018  
+_Tipo habitación_: Estandar
+
+Lun-Jue: 03/10, 04/10, 08/10, 09/10, 10/10, 11/10, 15/10, 16/10, 17/10, 18/10  
+> Lun-Jue: 10 * $150,99 = 1.509,90
+
+Vie-Dom: 05/10, 06/10, 07/10, 12/10, 13/10, 14/10    
+> Vie-Dom: 6 * $191,99 = 1.151,94  
+> Total: $2661,84
+
+#### Endpoint POST /book
+##### Request
+````json
+{
+  "check-in": "2018-10-03",
+  "check-out": "2018-10-19",
+  "kind": "ESTANDAR"
+}
+````
+##### Response
+````json
+{
+  "booked": true,
+  "price": 2661.84
+}
+````
 
 ### Requerimiento 3
 #### GET (piso, habitacion) -> MAX(cant 0)  
