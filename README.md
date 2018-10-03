@@ -3,9 +3,11 @@
 **_Have a_ nice day Hotel** es un prestigioso hotel que acaba de inaugurarse.
 
 Lanzó una campaña publicitaria en la que se jacta de tener una capacidad _infinita_ para albergar húespedes.  
-En la planta baja se encuentra el lobby del hotel, junto a un restaurante dirigido por un chef con 8 estrellas Michelin.
+En la planta baja se encuentra el lobby del hotel, junto a un restaurante dirigido por un chef con 4 estrellas Michelin.
 
 ### Requerimiento 1
+La apertura del hotel fue un éxito, y en un sólo día, el hotel recibió a 50.000 húespedes.
+
 Para mantener un orden, el conserje confeccionó un complejo sistema de asignación de habitaciones. Decidió que cada húesped debe alojarse en la primer habitación libre del piso más bajo que cumpla alguna de estas reglas:
 
 1) El 1er huésped debe alojarse en la habitación 1 del piso 1.
@@ -14,16 +16,19 @@ Para mantener un orden, el conserje confeccionó un complejo sistema de asignaci
 
 > Sólo puede haber un huésped por habitación.
 
+ > 1 <= piso <= 350  
+ > 1 <= habitación <= 350
+ 
+ > En caso de que la habitación consultada no esté ocupada, el sistema debe retornar guest=_null_.
+
+El conserje debe poder buscar en su sistema el número de húesped dado un _número de piso_ y _número de habitación_.
+
 #### Ejemplo
 * El primer húesped se aloja en la habitación 1 del 1er piso.
 * El huésped número 2 no puede alojarse en la habitación 2 del piso 1 ya que  1 + 2 = 3 no es un cuadrado perfecto, por lo que se le asigna la habitación 1 en el piso 2, que está vacío.
 * El húesped número 3, se aloja en la habitación 2 del piso 1 ya que 1 + 3 = 4 es un cuadrado perfecto.
 * El huésped número 4, no puede alojarse en el piso 1, ya que 3 + 4 = 7, y no es un cuadrado perfecto. Tampoco puede alojarse en el piso 2, ya que 2 + 4 = 6, no es un cuadrado perfecto. En consecuencia, el huésped 4 se aloja en la habitación 1 del piso 3 porque éste está vacío. 
 
-La apertura del hotel fue un éxito, y en un sólo día, el hotel recibió a 50.000 húespedes.
-Esa misma noche, el conserje recibe una llamada de la habitación 24 del piso 259, de un húesped quejándose de que en su habitación el aire acondicionado no funciona.
-El conserje debe buscar en su sistema el número de húesped, para registrar el incidente.
- 
 #### Endpoint GET /floors/{floor}/rooms/{room}
 ##### Response
  ````json
